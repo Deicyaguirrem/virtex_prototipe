@@ -1,0 +1,19 @@
+# Ignorar Node modules
+node_modules/
+
+# Ignorar Logs
+npm-debug.log
+*.log
+
+# Ignorar Env files
+.env
+
+# Ignorar IDE settings
+.vscode/
+.idea/
+
+# Ignorar Docker
+.dockerignore
+
+# Ignorar Otros
+.DS_Store

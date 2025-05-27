@@ -1,20 +1,20 @@
-# Usa una imagen liviana y multi-arquitectura
-FROM node:18-alpine 
+# Usa una imagen base de Node.js
+FROM node:18
 
-# Establece el directorio de trabajo
+# Crea y define el directorio de trabajo
 WORKDIR /app
 
-# Copia solo los archivos de dependencias primero (optimiza cache)
+# Copia los archivos de dependencias
 COPY package*.json ./
 
-# Instala dependencias (usa --production si no necesitas dev deps)
+# Instala las dependencias
 RUN npm install
 
 # Copia el resto del código
 COPY . .
 
-# Expone el puerto que usas en tu backend
+# Expone el puerto (si aplica)
 EXPOSE 3000
 
-# Comando para correr la app
+# Comando para iniciar la app
 CMD ["node", "index.js"]

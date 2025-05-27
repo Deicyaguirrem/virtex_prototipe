@@ -1,4 +1,3 @@
-version: '3.9'
 
 services:
   mosquitto:
@@ -21,7 +20,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./backend:/app
+      - ./backend:/app:delegated    # Monta tu código vivo
+      - /app/node_modules           # Guarda node_modules en un volumen anónimo
     depends_on:
       - mosquitto
-    restart: unl
+    restart: unless-stopped
+

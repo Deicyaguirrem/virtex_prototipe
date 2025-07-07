@@ -51,3 +51,16 @@ exports.subscribeToTopic = async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor.' });
   }
 };
+
+// Funcion para probar conexion a la DB viertex_db
+const db = require('../config/db'); // importa conexión
+
+exports.testDbConnection = async (req, res) => {
+  try {
+    const result = await db.query('SELECT NOW()');
+    res.status(200).json({ success: true, serverTime: result.rows[0].now });
+  } catch (error) {
+    console.error('❌ Error en testDbConnection:', error);
+    res.status(500).json({ success: false, error: 'No se pudo consultar la DB' });
+  }
+};

@@ -24,5 +24,32 @@ services:
       - /app/node_modules           # Guarda node_modules en un volumen anónimo
     depends_on:
       - mosquitto
+    environment:
+      - MQTT_BROKER_URL=mqtt://mosquitto:1883
     restart: unless-stopped
+
+  db:
+    image: timescale/timescaledb:latest-pg14
+    container_name: timescaledb
+    environment:
+      POSTGRES_USER: deicy
+      POSTGRES_PASSWORD: Deicy33677149
+      POSTGRES_DB: virtex_db
+      TZ: America/Bogota
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d # Inicialización de la base de datos
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "deicy", "-d", "virtex_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db_data:
 

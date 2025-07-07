@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 3000
 
 # Comando para iniciar la app
-CMD ["node", "index.js"]
+CMD ["./wait-for-it.sh", "db:5432", "--", "node", "index.js"]
+

@@ -18,5 +18,8 @@ router.post('/publishMqtt', commandController.publishMqtt);
 // ruta para suscribir en un topic
 router.post('/susbscribeMqtt', commandController.subscribeToTopic);
 
+// ruta de prueba para obtener datos de la base de datos
+router.get('/test-db', commandController.testDbConnection);
+
 
 module.exports = router;

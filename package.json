@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "express-list-endpoints": "^7.1.1"
+    "express-list-endpoints": "^7.1.1",
+    "react-router-dom": "^7.6.3"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
   }
 }

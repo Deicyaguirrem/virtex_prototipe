@@ -10,8 +10,10 @@ responde con el texto "Backend corriendi correctamente" */
 const apiRoutes = require('./routes/api.js'); //importa rutas
 app.use('/api', apiRoutes); // todas las rutas definidas en api.js irán con el prefijo api
 
-// Listamos todas las rutas registradas
-//console.log(listEndpoints(app));
+
+// todas las rutas definidas en authRoutes.js irán con el prefijo auth
+const authRoutes = require('./routes/authRoutes.js');
+app.use('/auth', authRoutes);
 
 //Redirige al archivo app.js donde esta la ruta
 app.get('/', (req, res) => {

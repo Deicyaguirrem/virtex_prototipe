@@ -1,0 +1,53 @@
+.home-container {
+  position: relative;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+}
+
+.home-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #178AC9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.home-button:hover {
+  background-color: #0f5e91;
+}
+
+.register-link {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #178AC9;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
+.home-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
